@@ -1,0 +1,11 @@
+CREATE TABLE Cars (
+  ID SERIAL PRIMARY KEY,
+  Brand       VARCHAR(255) NOT NULL,
+  Model       VARCHAR(255) NOT NULL,
+  Color       VARCHAR(255) NOT NULL,
+  StateNumber VARCHAR(255) NOT NULL
+);
+
+
+
+
