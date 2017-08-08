@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <context:annotation-config/>
+    <context:component-scan base-package="ordersservice"/>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="${dburl}"/>
+        <property name="username" value="${dbusername}"/>
+        <property name="password" value="${dbpassword}"/>
+    </bean>
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="configLocation" value="classpath:Hibernate/hibernate.cfg.xml"/>
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+    <!--bean id="entityManagerFactory"
+             class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+           <property name="dataSource" ref="dataSource"/>
+            <property name="persistenceXmlLocation" value="WEB-INF/persistance.xml"/>
+            <property name="persistenceUnitName" ref="persistenceUnit"/>
+           <property name="packagesToScan" value="ordersservice"/>
+    </bean-->
+
+    <bean id="hibernateUtil" class="ordersservice.dao.db.HibernateUtil">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!-- Controller bean -->
+
+    <bean id="ordersController" class="ordersservice.controller.OrdersController">
+        <constructor-arg ref="orderService"/>
+    </bean>
+
+    <!-- Service bean -->
+
+    <bean id="orderService" class="ordersservice.service.OrderServiceImpl">
+        <constructor-arg ref="orderDAO"/>
+    </bean>
+
+    <!-- DAO bean -->
+    <bean id="orderDAO" class="ordersservice.dao.db.DBOrderDAO">
+        <constructor-arg ref="hibernateUtil"/>
+    </bean>
+
+
+</beans>
