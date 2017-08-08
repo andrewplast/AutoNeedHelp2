@@ -1,4 +1,4 @@
-package ordersservice.model;
+package cardriversservice.model;
 
 import javax.persistence.*;
 

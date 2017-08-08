@@ -9,7 +9,7 @@
         <property name="show_sql">true</property>
         <property name="dialect">org.hibernate.dialect.H2Dialect</property>
         <property name="hbm2ddl.auto">create-drop</property>
-        <mapping class="ordersservice.model.GeoPoint"/>
+        <mapping class="cardriversservice.model.GeoPoint"/>
         <mapping class="ordersservice.model.Order"/>
     </session-factory>
 </hibernate-configuration>

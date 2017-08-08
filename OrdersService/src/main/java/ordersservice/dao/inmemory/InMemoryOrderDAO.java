@@ -1,9 +1,9 @@
 package ordersservice.dao.inmemory;
 
-import ordersservice.dao.CarDriverDAO;
+import cardriversservice.dao.CarDriverDAO;
+import cardriversservice.model.CarDriver;
+import carsservice.model.Car;
 import ordersservice.dao.OrderDAO;
-import ordersservice.model.Car;
-import ordersservice.model.CarDriver;
 import ordersservice.model.Order;
 
 import java.util.Collection;

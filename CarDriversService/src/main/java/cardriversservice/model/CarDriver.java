@@ -2,7 +2,6 @@ package cardriversservice.model;
 
 
 import carsservice.model.Car;
-import ordersservice.model.GeoPoint;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;

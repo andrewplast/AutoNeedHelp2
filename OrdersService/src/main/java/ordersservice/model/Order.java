@@ -1,6 +1,7 @@
 package ordersservice.model;
 
 import cardriversservice.model.CarDriver;
+import cardriversservice.model.GeoPoint;
 
 import javax.persistence.*;
 import java.sql.Timestamp;

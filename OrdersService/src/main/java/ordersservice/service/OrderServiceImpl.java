@@ -2,7 +2,7 @@ package ordersservice.service;
 
 import cardriversservice.model.CarDriver;
 import ordersservice.dao.OrderDAO;
-import cardriversservice.model.Manager;
+import ordersservice.model.Manager;
 import ordersservice.model.Order;
 import net.sf.ehcache.ObjectExistsException;
 import org.springframework.transaction.annotation.Propagation;

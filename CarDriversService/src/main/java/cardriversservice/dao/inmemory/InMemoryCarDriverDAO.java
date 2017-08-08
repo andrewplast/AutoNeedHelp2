@@ -2,7 +2,6 @@ package cardriversservice.dao.inmemory;
 
 import cardriversservice.dao.CarDriverDAO;
 import cardriversservice.model.CarDriver;
-import cardriversservice.model.Manager;
 import carsservice.model.Car;
 
 import java.util.Collection;
@@ -19,7 +18,7 @@ public class InMemoryCarDriverDAO extends Observable implements CarDriverDAO {
 
     public void add(CarDriver carDriver) throws Exception {
         carDrivers.add(carDriver);
-        Manager.getManager().addListener(carDriver);
+        //Manager.getManager().addListener(carDriver);
     }
 
     public void update(CarDriver carDriver) throws Exception {
@@ -29,7 +28,7 @@ public class InMemoryCarDriverDAO extends Observable implements CarDriverDAO {
 
     public void delete(CarDriver carDriver) throws Exception {
         carDrivers.remove(carDriver);
-        Manager.getManager().deleteListener(carDriver);
+        //Manager.getManager().deleteListener(carDriver);
     }
 
     public Car getCar(CarDriver carDriver) {

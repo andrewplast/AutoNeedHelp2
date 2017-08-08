@@ -1,4 +1,7 @@
-package cardriversservice.model;
+package ordersservice.model;
+
+import cardriversservice.model.CarDriver;
+import cardriversservice.model.Listener;
 
 import java.util.Collection;
 import java.util.HashSet;

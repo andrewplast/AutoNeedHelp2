@@ -2,7 +2,6 @@ package cardriversservice.service;
 
 import cardriversservice.dao.CarDriverDAO;
 import cardriversservice.model.CarDriver;
-import cardriversservice.model.Manager;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,7 +26,7 @@ public class CarDriverServiceImpl implements CarDriverService {
         try {
             if (!carDriverDAO.contains(carDriver)) {
                 carDriverDAO.add(carDriver);
-                Manager.getManager().addListener(carDriver);
+                //Manager.getManager().addListener(carDriver);
                 c = carDriver;
             } else {
                 throw new Exception("CarDriver already exist " + carDriver.toString());
@@ -62,7 +61,7 @@ public class CarDriverServiceImpl implements CarDriverService {
     public void delete(Integer id) throws Exception {
         CarDriver carDriver = carDriverDAO.getById(id);
         carDriverDAO.delete(carDriver);
-        Manager.getManager().deleteListener(carDriver);
+       // Manager.getManager().deleteListener(carDriver);
     }
 
     public CarDriver authCarDriver(String phone) throws Exception {
